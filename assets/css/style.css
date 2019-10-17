@@ -1,0 +1,49 @@
+body {
+
+    background-color: #f9fbfd; 
+ }
+ 
+ .myButton {
+     
+     margin-top: 20px;
+     margin-bottom: 40px;
+     border-radius:50px;
+     font-size: 23px;
+ 
+ }
+ 
+ h1 {
+     margin: 20px;
+     text-align: center;
+     
+ }
+ h2 {
+     padding: 20px;
+ }
+
+ .myTextArea{
+     text-align: center;
+     
+     
+ }
+  
+ /* These rules take effect when the browser's width
+ is either 767 or less.  */
+   @media screen and (max-width: 767px) {  
+
+    .myButton {
+        padding: 0;
+        font-size: 18px;
+        border-radius:40px;
+    }
+      
+     h2 {
+         text-align: center;
+     }
+     
+ }  
+
+ 
+ 
+ 
+ 
