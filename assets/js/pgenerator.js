@@ -11,7 +11,6 @@ var uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 function generate() {
     var password = "";
 
-
     var passwordLength = parseInt(
         prompt("How many characters would you like your password to contain?")
     );
@@ -33,7 +32,6 @@ function generate() {
         return;
     }
 
-
     var specialCha = confirm('Click ok to confirm special characters');
     var numeric = confirm("Click ok to confirm numerical characters");
     var lowerCase = confirm("Click ok to confirm lowercase characters");
@@ -45,7 +43,6 @@ function generate() {
         return;
 
     }
-
 
     var userChoice = {
         specialCha,
@@ -67,9 +64,6 @@ function generate() {
     if (upperCase) {
         password += uppercaseList.charAt(Math.floor((Math.random() * uppercaseList.length)));
     }
-
-
-
 
 
     for (var i = password.length - 1; i < passwordLength; i++) {
@@ -104,27 +98,26 @@ function generate() {
 
         }
         console.log(password.substring(0, passwordLength));
-
     }
 
 
-
-    document.getElementById("password").innerHTML =
-
-
+    //password will be displayd in the html.
+    document.getElementById("password").innerHTML = "Your super-safe password should appear here "
 
 
 
 
-        function makeid(passwordLength) {
-            var result = '';
-            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            var charactersLength = characters.length;
-            for (var i = 0; i < passwordLength; i++) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-            }
-            console(result);
-        }
+    // I was not able to figure out the solution.
+
+    // function makeid(passwordLength) {
+    //     var result = '';
+    //     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    //     var charactersLength = characters.length;
+    //     for (var i = 0; i < passwordLength; i++) {
+    //         result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    //     }
+    //     console(result);
+    // }
 
     console.log(makeid(passwordLength));
 
