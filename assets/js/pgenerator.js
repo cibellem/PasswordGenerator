@@ -9,6 +9,8 @@ var lowercaseList = 'abcdefghijklmnopqrstuvwxyz';
 var uppercaseList = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function generate() {
+
+    //doing all the is to make sure user confirm at least 1
     var password = "";
 
     var passwordLength = parseInt(
@@ -32,10 +34,14 @@ function generate() {
         return;
     }
 
+
+    //confirms always return booleans values 
+
     var specialCha = confirm('Click ok to confirm special characters');
     var numeric = confirm("Click ok to confirm numerical characters");
     var lowerCase = confirm("Click ok to confirm lowercase characters");
     var upperCase = confirm('Click ok to confirm uppercase characters');
+    console.log(specialCha)
 
 
     if (!specialCha && !numeric && !lowerCase && !upperCase) {
@@ -44,83 +50,76 @@ function generate() {
 
     }
 
-    var userChoice = {
-        specialCha,
-        numeric,
-        lowerCase,
-        upperCase
-    };
+    //here  I am lopping over each arry and will storing in the variable password 
+
     //console.log(userChoice)
-
     if (specialCha) {
-        password += specialCharList.charAt(Math.floor((Math.random() * specialCharList.length)));
+
+        for (var i = 0; i < specialCharList.length; i++) {
+
+            password += specialCharList.charAt(Math.floor(Math.random() * specialCharList.length));
+            console.log(password);
+            // userChoice.push(specialChaR)
+
+        };
+
     }
+
+
     if (numeric) {
-        password += numChoices.charAt(Math.floor((Math.random() * numChoices.length)));
+
+        for (var i = 0; i < numChoices.length; i++) {
+
+            password += numChoices.charAt(Math.floor(Math.random() * numChoices.length));
+            console.log(password);
+        }
+
     }
+
+
+
     if (lowerCase) {
-        password += lowercaseList.charAt(Math.floor((Math.random() * lowercaseList.length)));
+
+        for (var i = 0; i < lowercaseList.length; i++) {
+
+            password += lowercaseList.charAt(Math.floor(Math.random() * lowercaseList.length));
+            console.log(password);
+        }
+
+
+
     }
+
     if (upperCase) {
-        password += uppercaseList.charAt(Math.floor((Math.random() * uppercaseList.length)));
+
+        for (var i = 0; i < uppercaseList.length; i++) {
+
+            password += uppercaseList.charAt(Math.floor(Math.random() * uppercaseList.length));
+            console.log(password);
+
+        }
+
     }
+    var finalPassword = "";
+    for (var i = 0; i < passwordLength; i++) {
 
 
-    for (var i = password.length - 1; i < passwordLength; i++) {
+        finalPassword += password.charAt(Math.floor(Math.random() * password.length));
 
-        // I want to check if the user input it's true if so generate a random number.
-
-        if (numeric) {
-            var numChoice = specialCharList.charAt(Math.floor((Math.random() * specialCharList.length)));
-
-            console.log(numChoice)
-
-        }
-        // checking if the user input it's true if so generate a random lowercase character.
-        if (lowerCase) {
-            var lowerChoice = Math.floor((Math.random() * 25) + 97)
-            console.log(lowerChoice);
-
-        }
-
-        //  checking if the user input it's true if so generate a random uppercacse character.
-
-        if (upperCase) {
-            var upperChoice = Math.floor((Math.random() * (25)) + 60);
-            console.log(upperChoice);
-
-        }
-
-        // checking if the user inpt it's true if so generate a random special character.
-        if (specialCha) {
-
-            password += specialCharList.charAt(Math.floor((Math.random() * specialCharList.length)));
-
-        }
-        console.log(password.substring(0, passwordLength));
+        console.log(finalPassword)
     }
+    //showing in scsreen the password that was generated 
+
+    var showPassword = document.getElementById("password");
+    showPassword.innerHTML = finalPassword;
 
 
-    //password will be displayd in the html.
-    document.getElementById("password").innerHTML = "Your super-safe password should appear here "
-
-
-
-
-    // I was not able to figure out the solution.
-
-    // function makeid(passwordLength) {
-    //     var result = '';
-    //     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    //     var charactersLength = characters.length;
-    //     for (var i = 0; i < passwordLength; i++) {
-    //         result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    //     }
-    //     console(result);
-    // }
-
-    console.log(makeid(passwordLength));
-
-
+    //copyng the content in the screen 
+    var clip = document.getElementById("copy");
+    clip.addEventListener("click", function () {
+        showPassword.select();
+        document.execCommand("copy");
+        alert("Password Copied");
+    })
 
 }
